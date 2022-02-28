@@ -13,20 +13,17 @@
             // отримую дані для атаки
             echo "GET DATA \n";
             $count = 0;
-            /*
+            
             $data = @file_get_contents($hosts[array_rand($hosts)]);
-
-            if(!$data){
+            /* if(!$data){
                 echo "Waiting...\n";
                 sleep(5);
-            }
-            */
-            
-            do {
+            } */
+            while (!$data) {
                 $data = @file_get_contents($hosts[array_rand($hosts)]);
                 echo "Waiting...\n";
                 sleep(5);
-            } while (!$data)
+            }
 
             $data = json_decode($data, true);
 
