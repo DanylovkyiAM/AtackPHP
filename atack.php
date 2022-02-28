@@ -5,7 +5,7 @@
 
     $sessionMaxRequests = 5000;
 
-    $hosts = json_decode(file_get_contents('https://github.com/DanylovkyiAM/AtackPHP/blob/main/hosts.json'), true);
+    $hosts = json_decode(file_get_contents('https://raw.githubusercontent.com/DanylovkyiAM/AtackPHP/main/hosts.json'), true);
 
     while (true) {
         try {
