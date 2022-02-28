@@ -35,7 +35,7 @@
                     while (true){
                         request($data['site']['page'], $proxy['ip'], $proxy['auth']);
                         //if($count > $sessionMaxRequestsFailed){
-                        //    break;
+                            break;
                         //}
                     }
                 }
