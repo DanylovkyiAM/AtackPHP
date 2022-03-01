@@ -72,7 +72,8 @@
         $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
         //echo $url . ' | HTTP code: ' . $httpcode . ($ip && $auth ? ' with proxy ' : '') . " | " . $total . " / " . $count . "\n";
-        if ($count == 1)
+        if ($total % 100 == 1) {
             echo $url . ' | HTTP code: ' . $httpcode . ($ip && $auth ? ' with proxy ' : '') . " | " . $total . "\n";
+        }
         return $httpcode;
     }
